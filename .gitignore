@@ -1,3 +1,4 @@
+#.gitignore
 bochsrc
 bx_enh_dbg.ini
 *.bin
