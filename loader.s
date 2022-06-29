@@ -3,8 +3,8 @@
 section loader vstart=LOADER_BASE_ADDR
 
 ; 调用print_str_real打印
-mov cx, loader_end - loader_start ; 字符串长度
-mov bp, loader_start ; 字符串起始位置
+mov cx, loader_start_str_end - loader_start_str_begin ; 字符串长度
+mov bp, loader_start_str_begin ; 字符串起始位置
 mov dh, 0x2 ; 在第2行打印字符
 mov dl, 0x0 ; 从第0列开始打印字符
 call print_str_real
@@ -56,6 +56,6 @@ GDT_DATA: ; 数据段描述符
     db 0; 采用平坦模式, 段基址24-31位全为0
 GDT_END:
 
-loader_start:
+loader_start_str_begin:
     db 'loader start...'
-loader_end:
+loader_start_str_end:
